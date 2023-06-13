@@ -1,0 +1,25 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visitor Count</title>
+</head>
+
+<body>
+    <h1>Visitor Count</h1>
+    <p>Total visitors: <span id="visitorCount">Loading...</span></p>
+
+    <script>
+        fetch('/visited')
+            .then(response => response.text())
+            .then(count => {
+                document.getElementById('visitorCount').textContent = count;
+            })
+            .catch(err => {
+                console.log('Error fetching visitor count:', err);
+            });
+    </script>
+</body>
+
+</html>
